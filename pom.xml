@@ -41,6 +41,15 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--https://springdoc.org/-->
+        <!--https://github.com/springdoc/springdoc-openapi-->
+        <!--https://www.baeldung.com/spring-rest-openapi-documentation-->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-webflux-core</artifactId>
+            <version>1.6.11</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -63,6 +72,25 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <apiDocsUrl>http://localhost:8080/v3/api-docs.yaml</apiDocsUrl>
+                    <outputFileName>API.yaml</outputFileName>
+                    <outputDir>${project.basedir}/src/main/resources/api</outputDir>
                 </configuration>
             </plugin>
         </plugins>
