@@ -1,4 +1,4 @@
-package com.example.scheduling;
+package com.example.scheduling.api;
 
 import com.example.scheduling.domain.Book;
 import org.springframework.web.bind.annotation.GetMapping;

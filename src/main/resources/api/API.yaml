@@ -3,27 +3,27 @@ info:
   title: OpenAPI definition
   version: v0
 servers:
-- url: http://localhost:8080
-  description: Generated server url
+- description: Generated server url
+  url: http://localhost:8080
 paths:
   /books:
     get:
-      tags:
-      - books-controller
       operationId: getBook
       responses:
         "200":
-          description: OK
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/Book'
+          description: OK
+      tags:
+      - books-controller
 components:
   schemas:
     Book:
       type: object
       properties:
-        title:
-          type: string
         author:
+          type: string
+        title:
           type: string
