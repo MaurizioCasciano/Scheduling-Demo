@@ -64,6 +64,11 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <executions>
                     <execution>
+                        <configuration>
+                            <profiles>
+                                <profile>test</profile>
+                            </profiles>
+                        </configuration>
                         <goals>
                             <goal>start</goal>
                             <goal>stop</goal>
